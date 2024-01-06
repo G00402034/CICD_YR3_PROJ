@@ -21,10 +21,8 @@ public class User {
     private String Address;
     private String Password;
 
-    public User(String name, String email, String address, String password) {
+    public User(String name,String password) {
         Name = name;
-        Email = email;
-        Address = address;
         Password = password;
     }
 }
