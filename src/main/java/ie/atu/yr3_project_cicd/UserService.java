@@ -8,21 +8,29 @@ public class UserService {
 
     private final UserDB userDB;
 
-    public UserService(UserDB userDB ) {
+    public UserService(UserDB userDB) {
         this.userDB = userDB;
     }
 
-    public boolean existsByname(String name) {
+    public boolean isValidUser(String name, String password) {
+        User user = userDB.findByName(name);
+        if (user != null) {
+            System.out.println(user);
+            // Check both username and password
+            return user.getName().equals(name) && user.getPassword().equals(password);
+        }
+        return false;
+    }
+
+    public boolean existsByName(String name) {
         return userDB.findByName(name) != null;
     }
 
     public void createOrUpdateUser(String name, String password) {
-       User UserInfo = new User(name, password);
-        UserDB.save(UserInfo);
+        User userInfo = new User(name, password);
+        userDB.save(userInfo);
     }
-
 }
 
 
 
-}
