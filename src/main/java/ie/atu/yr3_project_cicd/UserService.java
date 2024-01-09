@@ -22,10 +22,6 @@ public class UserService {
         return false;
     }
 
-    public boolean existsByName(String name) {
-        return userDB.findByName(name) != null;
-    }
-
     public void createOrUpdateUser(String name, String password) {
         User userInfo = new User(name, password);
         userDB.save(userInfo);

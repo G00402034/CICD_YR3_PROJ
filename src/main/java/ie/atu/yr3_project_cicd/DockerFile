@@ -1,19 +1,8 @@
 FROM openjdk:11-jre-slim
-
-# Set the working directory
 WORKDIR /app
-
-# Copy the JAR file into the container at /app
 COPY target/maven-wrapper.jar /app/maven-wrapper.jar
-
-# Expose the port that your Spring Boot application is running on
 EXPOSE 8080
-
-# Command to run your application
 CMD ["java", "-jar", "YR3_Project_CICD.jar"]
 
 
-
-docker build -t your-docker-image-name .
-
-docker run -p 8080:8080 your-docker-image-name
+docker run -p 8080:8080 
